@@ -4,14 +4,20 @@
     <div>
       <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
       {{ product.price | money }}
-      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+      {% unless product.available %}<br><strong>sold out</strong>
+      {% endunless %}
       <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        <img
+          src="{{ product.featured_image.src | image_url: 'large' }}"
+          alt="{{ product.featured_image.alt | escape }}"
+          width="100"
+          height="100"
+          loading="lazy">
       </a>
     </div>
   {% else %}
     <p>no matches</p>
   {% endfor %}
-  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
+  {% if paginate.pages > 1 %}
+    {{ paginate | default_pagination }}{% endif %}
 {% endpaginate %}
-

@@ -1,15 +1,22 @@
 {% for collection in collections %}
   {% unless collection.handle == 'frontpage' %}
-    {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+    {% capture collection_title %}
+      {{ collection.title | escape }}{% endcapture %}
     <a href="{{ collection.url }}">More {{ collection_title }} &rsaquo;</a>
-    {% for product in collection.products limit:5 %}
+    {% for product in collection.products limit: 5 %}
       {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
       <div>
         <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
         {{ product.price | money }}
-        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+        {% unless product.available %}<br><strong>sold out</strong>
+        {% endunless %}
         <a href="{{ product.url | within: collection }}">
-          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+          <img
+            src="{{ product.featured_image.src | image_url: 'large' }}"
+            alt="{{ product.featured_image.alt | escape }}"
+            width="100"
+            height="100"
+            loading="lazy">
         </a>
       </div>
     {% endfor %}

@@ -1,4 +1,7 @@
 <!doctype html>
+
+
+
 <html>
   <head>
     <title>{{ page_title }}</title>
@@ -10,11 +13,13 @@
     {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
-    {{ 'application.js' | asset_url | script_tag }}
+    <script src="{{ 'application.js' | asset_url }}" defer></script>
   </head>
   <body>
-    <main role="main">
-      {{ content_for_layout }}
+    {{ content_for_header }}
+    {% section 'header' %}
+    {{ content_for_layout }}
+    <main role="main">{% comment %} {{ content_for_layout }} {% endcomment %}
     </main>
   </body>
 </html>

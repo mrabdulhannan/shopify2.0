@@ -1,6 +1,9 @@
 {% if cart.item_count > 0 %}
   <h1>cart</h1>
-  <form action="/cart" method="post" novalidate>
+  <form
+    action="/cart"
+    method="post"
+    novalidate>
     <table>
       <thead>
         <th colspan="2">Prod</th>
@@ -13,7 +16,12 @@
           <tr>
             <td>
               <a href="{{ item.url | within: collections.all }}">
-                <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+                <img
+                  src="{{ item | image_url: 'medium' }}"
+                  alt="{{ item.title | escape }}"
+                  width="100"
+                  height="100"
+                  loading="lazy">
               </a>
             </td>
             <td>
@@ -23,12 +31,19 @@
             </td>
             <td>{{ item.price | money }}</td>
             <td>
-              <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+              <input
+                type="number"
+                name="updates[]"
+                id="updates_{{ item.key }}"
+                value="{{ item.quantity }}"
+                min="0">
             </td>
             <td>
-              {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+              {% if item.original_line_price != item.line_price %}
+                {{ item.original_line_price | money }}{% endif %}
               {{ item.line_price | money }}
-              {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+              {% for discount in item.discounts %}
+                {{ discount.title }}{% endfor %}
             </td>
           </tr>
         {% endfor %}

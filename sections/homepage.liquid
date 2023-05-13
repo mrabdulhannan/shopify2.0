@@ -1,5 +1,9 @@
 <div class="homepage">
-  <img src="https://weeklyhow.com/wp-content/uploads/2020/11/WeeklyHow-Logo-With-Text-Bottom.png" class="logo">
+  <img
+    src={{ image | image_url: 'https://weeklyhow.com/wp-content/uploads/2020/11/WeeklyHow-Logo-With-Text-Bottom.png' }}
+    width="100"
+    height="100"
+    loading="lazy">
   <h1>Welcome to Shopify Theme Development course!</h1>
   <p>{% render 'homepage-text' %}</p>
 
