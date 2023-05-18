@@ -14,6 +14,9 @@
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'application.js' | asset_url }}" defer></script>
+    <script src="{{ 'alpine.js' | asset_url: "https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js" }}" defer></script>
+
+
   </head>
   <body>
     {{ content_for_header }}

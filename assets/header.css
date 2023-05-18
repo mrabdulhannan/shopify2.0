@@ -1,0 +1,14 @@
+.cart-icon {
+    width: 60px;
+    float: right;
+    margin-top: -100px;
+}
+.navigation-menu {
+    text-align: center;
+}
+.store-name {
+    text-align: center;
+}
+.nav-menu-button {
+    display: inline;
+}

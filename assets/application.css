@@ -1,7 +1,4 @@
-body {
-    background-color: rgb(251, 251, 232);
-}
-
+@import "header.css";
 .homepage {
     text-align: center;
     padding-top: 10em;
@@ -10,3 +7,4 @@ body {
 .logo {
     width: 25%;
 }
+
